@@ -88,4 +88,4 @@ Ideas, bug fixes, translations, UI/UX improvements, and feature requests help im
 
 ## ⭐ Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=HarshShinde0/vinyleaf&type=Timeline)](https://www.star-history.com/#HarshShinde0/vinyleaf&Timeline)
+[![Star History Chart](https://api.star-history.com/svg?repos=HarshShinde0/vinyleaf&type=Date)](https://www.star-history.com/#HarshShinde0/vinyleaf&Date)
