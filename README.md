@@ -34,15 +34,6 @@ Vinyleaf does not host or distribute any copyrighted music. Google Drive integra
 
 ---
 
-## 📸 Screenshots
-
-[<img src="assets/screenshot1.png" width=23%>](assets/screenshot1.png)
-[<img src="assets/screenshot2.png" width=23%>](assets/screenshot2.png)
-[<img src="assets/screenshot3.png" width=23%>](assets/screenshot3.png)
-[<img src="assets/screenshot4.png" width=23%>](assets/screenshot4.png)
-
----
-
 ## 📝 Description
 
 Vinyleaf parses your Google Drive to stream music files, offers a beautiful and ad-free experience, and helps you manage your playlists with ease.
