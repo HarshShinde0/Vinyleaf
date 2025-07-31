@@ -1,0 +1,87 @@
+name: Build and Release APK
+
+on:
+  push:
+    tags:
+      - 'v*'  # Triggers on version tags like v1.0.0
+  workflow_dispatch:  # Allows manual triggering
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+
+    - name: Cache Gradle packages
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/.gradle/caches
+          ~/.gradle/wrapper
+        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+        restore-keys: |
+          ${{ runner.os }}-gradle-
+
+    - name: Make gradlew executable
+      run: chmod +x gradlew
+
+    - name: Create local.properties
+      run: |
+        echo "sdk.dir=$ANDROID_HOME" > local.properties
+        echo "GOOGLE_DRIVE_CLIENT_ID=dummy_client_id_for_build" >> local.properties
+
+    - name: Build Release APK
+      run: ./gradlew assembleRelease
+
+    - name: Sign APK
+      uses: r0adkll/sign-android-release@v1
+      id: sign_app
+      with:
+        releaseDirectory: app/build/outputs/apk/release
+        signingKeyBase64: ${{ secrets.SIGNING_KEY }}
+        alias: ${{ secrets.ALIAS }}
+        keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
+        keyPassword: ${{ secrets.KEY_PASSWORD }}
+      env:
+        BUILD_TOOLS_VERSION: "34.0.0"
+
+    - name: Get release info
+      id: release_info
+      run: |
+        echo "version_name=$(grep 'versionName' app/build.gradle.kts | cut -d'"' -f2)" >> $GITHUB_OUTPUT
+        echo "version_code=$(grep 'versionCode' app/build.gradle.kts | grep -o '[0-9]*')" >> $GITHUB_OUTPUT
+
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: ${{ github.ref_name }}
+        name: "Vinyleaf Music Player v${{ steps.release_info.outputs.version_name }}"
+        body: |
+          ## 🎵 Vinyleaf Music Player Release
+          
+          **Version:** ${{ steps.release_info.outputs.version_name }}
+          **Build:** ${{ steps.release_info.outputs.version_code }}
+          
+          ### What's New
+          - Latest features and improvements
+          - Bug fixes and performance enhancements
+          
+          ### Installation
+          Download the APK file below and install on your Android device.
+          
+          **Minimum Android Version:** 7.0 (API level 24)
+
+        files: |
+          ${{ steps.sign_app.outputs.signedReleaseFile }}
+        draft: false
+        prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

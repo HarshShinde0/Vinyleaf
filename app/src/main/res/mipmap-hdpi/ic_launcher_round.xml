@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Round background -->
+    <path android:pathData="M54,54m-54,0a54,54 0,1 1,108 0a54,54 0,1 1,-108 0">
+        <aapt:attr name="android:fillColor" xmlns:aapt="http://schemas.android.com/aapt">
+            <gradient
+                android:startY="0" android:startX="54" android:endY="108" android:endX="54"
+                android:type="linear">
+                <item android:offset="0" android:color="#1DB954"/>
+                <item android:offset="1" android:color="#1ED760"/>
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Vinyl record design -->
+    <path android:pathData="M54,54m-35,0a35,35 0,1 1,70 0a35,35 0,1 1,-70 0"
+        android:fillColor="#000000"
+        android:fillAlpha="0.8"/>
+
+    <path android:pathData="M54,54m-25,0a25,25 0,1 1,50 0a25,25 0,1 1,-50 0"
+        android:fillColor="#1DB954"/>
+
+    <!-- Center hole -->
+    <path android:pathData="M54,54m-6,0a6,6 0,1 1,12 0a6,6 0,1 1,-12 0"
+        android:fillColor="#000000"/>
+
+    <!-- Music note -->
+    <path android:pathData="M62,36L62,62C62,64.76 59.76,67 57,67C54.24,67 52,64.76 52,62C52,59.24 54.24,57 57,57C57.85,57 58.64,57.22 59.33,57.61L60,57.27L60,36L62,36Z"
+        android:fillColor="#FFFFFF"/>
+
+</vector>
+
