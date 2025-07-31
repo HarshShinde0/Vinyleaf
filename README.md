@@ -1,163 +1,100 @@
-# 🎵 Vinyleaf - Android Music Player
+<p align="center">
+  <a href="https://github.com/HarshShinde0/vinyleaf">
+    <img src="https://cdn.midjourney.com/69275306-9024-484a-8a7d-986f6420ed5f/grid_0.png" width="150">
+  </a>
+</p>
 
-A modern, feature-rich Android music player app with seamless Google Drive integration. Built using Jetpack Compose and Material Design 3 for a beautiful, responsive user experience.
+<h2 align="center"><b>Vinyleaf - Android Music Player</b></h2>
+<h4 align="center">A modern Android music player with Google Drive integration, built with Jetpack Compose and Material Design 3.</h4>
+
+<p align="center">
+  <a href="https://github.com/HarshShinde0/vinyleaf/releases">
+    <img src="https://img.shields.io/github/issues/HarshShinde0/vinyleaf">
+  </a>
+  <a href="https://github.com/HarshShinde0/vinyleaf">
+    <img src="https://img.shields.io/github/stars/HarshShinde0/vinyleaf">
+  </a>
+  <a href="https://github.com/HarshShinde0/vinyleaf">
+    <img src="https://img.shields.io/github/forks/HarshShinde0/vinyleaf">
+  </a>
+  <a href="https://github.com/HarshShinde0/vinyleaf/releases">
+    <img src="https://img.shields.io/github/downloads/HarshShinde0/vinyleaf/total.svg">
+  </a>
+</p>
+<hr>
+
+<h3 align="center">⭐ Star this repo to show your support — it really matters!</h3>
+
+---
+
+Vinyleaf is a feature-rich Android music player that lets you stream your music directly from Google Drive. Built with a modern UI, it offers seamless background playback, playlist management, and supports all popular audio formats. Whether you’re a music enthusiast or a casual listener, Vinyleaf delivers a beautiful and powerful listening experience.
+
+**Disclaimer:**  
+Vinyleaf does not host or distribute any copyrighted music. Google Drive integration is purely for personal file access. Users are responsible for ensuring their usage complies with applicable laws.
+
+---
+
+## 📸 Screenshots
+
+[<img src="assets/screenshot1.png" width=23%>](assets/screenshot1.png)
+[<img src="assets/screenshot2.png" width=23%>](assets/screenshot2.png)
+[<img src="assets/screenshot3.png" width=23%>](assets/screenshot3.png)
+[<img src="assets/screenshot4.png" width=23%>](assets/screenshot4.png)
+
+---
+
+## 📝 Description
+
+Vinyleaf parses your Google Drive to stream music files, offers a beautiful and ad-free experience, and helps you manage your playlists with ease.
 
 ---
 
 ## 🚀 Features
 
-- **Google Drive Integration**  
-  Stream music directly from your Google Drive.
+- 🎶 **Google Drive Integration**: Stream music from your Google Drive library
+- ✨ **Modern UI**: Jetpack Compose & Material Design 3
+- 🔊 **Background Playback**: Music keeps playing even when the app is minimized
+- 📁 **Playlist Management**: Create and customize playlists
+- 🎧 **Audio Format Support**: MP3, FLAC, WAV, AAC, OGG
+- 🌙 **Automatic Dark/Light Theme**: Adapts to your system preference
 
-- **Modern UI**  
-  Built with Jetpack Compose and Material Design 3 for smooth, responsive layouts.
+### 🛠️ Coming Soon
 
-- **Background Playback**  
-  Enjoy uninterrupted music, even when the app is in the background.
-
-- **Playlist Management**  
-  Create, edit, and manage custom playlists.
-
-- **Wide Audio Format Support**  
-  Plays MP3, FLAC, WAV, AAC, OGG files.
-
-- **Automatic Dark/Light Theme**  
-  Smartly adapts to your system theme.
+- Cloud sync for playlists & playback progress
+- Advanced equalizer & audio effects
+- More integrations and features
 
 ---
 
-## 🛠️ Getting Started
+## ⚙️ Technologies Used
 
-### Prerequisites
-
-- **Android Studio Flamingo** or newer  
-- **JDK 17**  
-- **Android SDK API 24+**
-
-### Google Drive API Setup
-
-1. Visit [Google Cloud Console](https://console.cloud.google.com/)
-2. Create a new project or select an existing one
-3. Enable **Google Drive API**
-4. Create **OAuth 2.0 credentials** for Android
-5. Add your app's **SHA-1 fingerprint**
-6. Copy the Client ID to your `local.properties`:
-
-   ```properties
-   GOOGLE_DRIVE_CLIENT_ID=your_actual_client_id_here.apps.googleusercontent.com
-   ```
-
-### Building the App
-
-#### Debug Build
-
-```bash
-./gradlew assembleDebug
-```
-
-#### Release Build
-
-```bash
-./gradlew assembleRelease
-```
+- Kotlin
+- Jetpack Compose
+- MVVM Architecture
+- Hilt (Dependency Injection)
+- Room Database
+- ExoPlayer
+- Retrofit & OkHttp
+- Coil (for images)
+- Google OAuth 2.0
 
 ---
 
-## 📱 Release Process
+## 🤝 Contribution
 
-### Automatic Releases via GitHub Actions
+All contributions are welcome!  
+Ideas, bug fixes, translations, UI/UX improvements, and feature requests help improve Vinyleaf.
 
-This project is set up for automatic APK generation and signing on each GitHub release.
+- Fork the repo
+- Create your feature branch (`git checkout -b feature/my-feature`)
+- Commit your changes
+- Push to your branch
+- Create a Pull Request
 
-**Steps:**
-
-1. **Create a signed keystore** (one-time setup):
-
-   ```bash
-   keytool -genkey -v -keystore release-keystore.jks -keyalg RSA -keysize 2048 -validity 10000 -alias vinyleaf
-   ```
-
-2. **Add GitHub Secrets** to your repository:
-
-   - `SIGNING_KEY`: Base64 encoded keystore file
-   - `ALIAS`: Keystore alias (e.g., `vinyleaf`)
-   - `KEY_STORE_PASSWORD`: Keystore password
-   - `KEY_PASSWORD`: Key password
-
-3. **Create a release** (tag and push):
-
-   ```bash
-   git tag v1.0.0
-   git push origin v1.0.0
-   ```
-
-   Or create a release through the GitHub web interface.
-
-4. **GitHub Actions will automatically:**
-
-   - Build the release APK
-   - Sign the APK using your keystore
-   - Upload the APK to the GitHub release
-
-### Manual Release
-
-1. Build a signed APK:
-
-   ```bash
-   ./gradlew assembleRelease
-   ```
-
-2. Find your APK in:  
-   `app/build/outputs/apk/release/`
+[Pull requests](https://github.com/HarshShinde0/vinyleaf/pulls) will be reviewed promptly.
 
 ---
 
-## 🔒 Security Notes
+## ⭐ Star History
 
-- ✅ `local.properties` is in `.gitignore` (contains sensitive API keys)
-- ✅ Google Drive Client ID is loaded securely from environment variables
-- ✅ Release builds are properly signed and optimized
-- ⚠️ **Never commit actual API keys or secrets to version control**
-
----
-
-## 🏗️ Architecture Overview
-
-- **MVVM Pattern**  
-  ViewModels manage UI state.
-
-- **Repository Pattern**  
-  Clean data layer abstraction.
-
-- **Dependency Injection**  
-  Hilt for scalable, testable dependencies.
-
-- **Room Database**  
-  Local caching and offline support.
-
-- **Coroutines**  
-  For efficient asynchronous operations.
-
----
-
-## 📦 Tech Stack
-
-- **UI:** Jetpack Compose, Material Design 3
-- **Audio:** ExoPlayer, MediaSession
-- **Network:** Retrofit, OkHttp
-- **Database:** Room
-- **DI:** Hilt
-- **Image Loading:** Coil
-- **Authentication:** Google OAuth 2.0
-
----
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/your-feature`)
-3. Commit your changes
-4. Push to your branch
-5. Create a Pull Request
-
----
+[![Star History Chart](https://api.star-history.com/svg?repos=HarshShinde0/vinyleaf&type=Date)](https://star-history.com/#HarshShinde0/vinyleaf&Date)
